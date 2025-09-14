@@ -33,11 +33,6 @@ public class SocialServiceImpl implements SocialService{
     public List<SocialGroup> getAllSocialGroups() {
         return socialGroupRepo.findAll();
     }
-//
-//    @Override
-//    public List<SocialPost> getAllPosts() {
-//        return socialPostRepo.findAll();
-//    }
 
     @Override
     public List<SocialProfile> getAllProfiles() {
