@@ -1,5 +1,6 @@
 package com.social.media.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.GeneratedValue;
@@ -16,10 +17,12 @@ public class SocialProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;   // <-- primary key for SocialProfile (independent)
+    private Long id;   // <-- primary key for SocialProfile (independent)
 
     @OneToOne
     @JoinColumn(name="social_user", referencedColumnName = "Id")
+    @JsonIgnore
     private SocialUser socialUser;  // <-- foreign key column to SocialUser.Id
+    private String description;
 
 }

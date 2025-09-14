@@ -1,5 +1,6 @@
 package com.social.media.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,8 +19,9 @@ public class SocialGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)   // Add this line
-    private Long Id;
+    private Long id;
 
     @ManyToMany(mappedBy = "groups")
+    @JsonIgnore   // Prevents recursion when serializing
     private Set<SocialUser> socialUsers = new HashSet<>();
 }

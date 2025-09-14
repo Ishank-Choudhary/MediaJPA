@@ -29,12 +29,12 @@ public class SocialController {
         return new ResponseEntity<>(socialService.getAllSocialGroups(),HttpStatus.OK);
     }
 
-    @GetMapping("/socialProfile")
+    @GetMapping("/socialProfile/")
     public ResponseEntity<List<SocialProfile>> getSocialProfile(){
         return new ResponseEntity<>(socialService.getAllProfiles(),HttpStatus.OK);
     }
 
-    @PostMapping("/social/users")
+    @PostMapping("/create/socialUsers/")
     public ResponseEntity<SocialUser> saveUser(@RequestBody SocialUser socialUser){
         return new ResponseEntity<>(socialService.saveUser(socialUser),HttpStatus.CREATED);
     }
